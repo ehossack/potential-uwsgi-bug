@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+    django:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        networks:
+            - uwsgibug
+        expose:
+            - 8000
+
+    nginx:
+        build:
+            context: .
+            dockerfile: nginx.Dockerfile
+        expose:
+            - 80
+        ports:
+            - 8088:80
+        networks:
+            - uwsgibug
+        depends_on:
+            - django
+
+networks:
+    uwsgibug:

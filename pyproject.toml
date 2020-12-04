@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "scratch"
+version = "0.1.0"
+description = ""
+authors = ["Étienne H <et@hossack.me>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+uWSGI = "^2.0.19"
+Django = "^3.1.4"
+
+[tool.poetry.dev-dependencies]
+docker-compose = "^1.27.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
