@@ -20,5 +20,5 @@ import time
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('reproduction/', lambda r : time.sleep(120) or JsonResponse({"oh no"}))
+    path('reproduction/', lambda r : time.sleep(120) or JsonResponse({"oh": "no"}))
 ]

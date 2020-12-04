@@ -20,4 +20,5 @@ The response actually does complete after the 120 seconds
 
 ### Further notes
 
-Uncomment the env section in `docker-compose.yml` to see the same problem with flask
+* Uncomment the env section in `docker-compose.yml` to see the same problem with flask
+* https://forum.nginx.org/read.php?2,259882,259882

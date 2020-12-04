@@ -16,7 +16,7 @@ COPY uwsgibug uwsgibug/
 RUN echo "\
     \#!/bin/bash \n\
     \
-    poetry run uwsgi --http 0.0.0.0:8000 --master \
+    poetry run uwsgi --socket 0.0.0.0:8000 --master \
     --module=\${MODULE:-uwsgibug.wsgi:application} \
     --workers=6 \
     --socket-timeout=300 \

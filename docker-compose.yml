@@ -9,6 +9,8 @@ services:
             - uwsgibug
         expose:
             - 8000
+        ports:
+            - 8089:8000
         # environment:
         #     MODULE: 'flask_app:app'
 
