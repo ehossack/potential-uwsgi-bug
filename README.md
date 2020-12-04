@@ -16,3 +16,8 @@ after 60 seconds, get a 502 response from nginx
 "upstream prematurely closed connection while reading response header from upstream"
 
 The response actually does complete after the 120 seconds
+
+
+### Further notes
+
+Uncomment the env section in `docker-compose.yml` to see the same problem with flask

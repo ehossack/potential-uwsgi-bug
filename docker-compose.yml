@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-    django:
+    repro:
         build:
             context: .
             dockerfile: Dockerfile
@@ -9,6 +9,8 @@ services:
             - uwsgibug
         expose:
             - 8000
+        # environment:
+        #     MODULE: 'flask_app:app'
 
     nginx:
         build:
@@ -21,7 +23,7 @@ services:
         networks:
             - uwsgibug
         depends_on:
-            - django
+            - repro
 
 networks:
     uwsgibug:

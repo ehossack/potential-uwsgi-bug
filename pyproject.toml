@@ -8,6 +8,7 @@ authors = ["Étienne H <et@hossack.me>"]
 python = "^3.9"
 uWSGI = "^2.0.19"
 Django = "^3.1.4"
+Flask = "^1.1.2"
 
 [tool.poetry.dev-dependencies]
 docker-compose = "^1.27.4"

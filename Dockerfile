@@ -13,12 +13,19 @@ RUN poetry install --no-dev
 
 COPY uwsgibug uwsgibug/
 
-CMD cd uwsgibug && poetry run uwsgi --http 0.0.0.0:8000 --master \
-    --module=uwsgibug.wsgi:application \
+RUN echo "\
+    \#!/bin/bash \n\
+    \
+    poetry run uwsgi --http 0.0.0.0:8000 --master \
+    --module=\${MODULE:-uwsgibug.wsgi:application} \
     --workers=6 \
     --socket-timeout=300 \
     --ignore-sigpipe --ignore-write-errors --disable-write-exception \
     --threads=$cores \
     --max-requests=20 \
     --reload-mercy=200 \
-    --reload-on-as=350 --reload-on-rss=320
+    --reload-on-as=350 --reload-on-rss=320" > uwsgibug/startup.sh
+
+RUN chmod 755 uwsgibug/startup.sh
+
+CMD cd uwsgibug && ./startup.sh
